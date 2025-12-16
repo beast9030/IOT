@@ -1,14 +1,11 @@
-int relayPin=7;
-void setup()
-{
-  pinMode(relayPin, OUTPUT);
-  digitalWrite(relayPin,HIGH);
+void setup(){
+  pinMode(2,OUTPUT);
 }
 
-void loop()
-{
-  digitalWrite(relayPin, LOW);
-  delay(2000); 
-  digitalWrite(relayPin, HIGH);
-  delay(2000);
+void loop(){
+  digitalWrite(2,HIGH);
+  delay(1000);
+   digitalWrite(2,LOW);
+  delay(5000);
+
 }
