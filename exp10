@@ -1,0 +1,24 @@
+const int MAX_LEN = 30;
+char sendMsg[] = "Hello I'm Arduino-2\n";
+char receiveMsg[MAX_LEN];
+int sw = 10;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(sw, INPUT);
+}
+
+void loop() {
+  if (digitalRead(sw)) {
+    if (Serial.available()) {
+      int len = Serial.parseInt();
+      Serial.read();
+      int n = Serial.readBytes(receiveMsg, len);
+      receiveMsg[n] = 0;
+      Serial.println(receiveMsg);
+    }
+  } else {
+    Serial.write(sendMsg, strlen(sendMsg));
+    delay(1000);
+  }
+}
